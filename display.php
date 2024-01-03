@@ -39,7 +39,8 @@
                 $name = $row['Name'];
                 $email = $row['Email'];
                 $mobile = $row['Mobile'];
-                $password = $row['Password'];
+                // $password = $row['Password'];
+                $password = str_repeat('*', strlen($row['Password'])); 
                 echo '<tr>
                 <th scope="row">'.$id.'</th>
                 <td>'.$name.'</td>
