@@ -14,3 +14,5 @@ if (!$conn)
     }
 
 ?>
+
+<!-- //http://localhost/phpmyadmin -->

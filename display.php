@@ -12,13 +12,12 @@
 </head>
 <body>
     <div class="coontainer my-5 mx-5">
-    <button type="submit" class="btn btn-primary my-5" name="submit"> 
-        <a href="index.php" class="text-light">ADD Employee</a> </button>
+  
 
         <table class="table">
   <thead>
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col">Photo</th>
       <th scope="col">Name</th>
       <th scope="col">Email</th>
       <th scope="col">Mobile</th>
@@ -35,14 +34,17 @@
          if($result){
             while($row=mysqli_fetch_assoc($result))
             {
+              $photo=$row['photo'];
                 $id = $row['Id'];
                 $name = $row['Name'];
                 $email = $row['Email'];
                 $mobile = $row['Mobile'];
                 // $password = $row['Password'];
                 $password = str_repeat('*', strlen($row['Password'])); 
+                
                 echo '<tr>
-                <th scope="row">'.$id.'</th>
+                
+                <td><img src='.$photo.' width="100" height="100" alt="Student Image"></td>
                 <td>'.$name.'</td>
                 <td>'.$email.'</td>
                 <td>'.$mobile.'</td>
@@ -62,7 +64,8 @@
     
   </tbody>
 </table>
-
+<button type="submit" class="btn btn-primary my-5" name="submit"> 
+        <a href="index.php" class="text-light">ADD Employee</a> </button>
     </div>
     
 </body>
