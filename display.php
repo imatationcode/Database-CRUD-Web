@@ -25,6 +25,7 @@
         <th scope="col">Mobile</th>
         <th scope="col">Gender</th>
         <th scope="col">Date Of Birth</th>
+        <th scope="col">Designation</th>
         <th scope="col">Password</th>
         
       </tr>
@@ -45,6 +46,7 @@
                   $mobile = $row['Mobile'];
                   $gender = $row['Gender'];
                   $dob = $row['date_Of_Birth'];
+                  $des = $row['Designation'];
                   // $password = $row['Password'];
                   $password = str_repeat('*', strlen($row['Password'])); 
                   
@@ -56,6 +58,7 @@
                   <td>'.$mobile.'</td>
                   <td>'.$gender.'</td>
                   <td>'.$dob.'</td>
+                  <td>'.$des.'</td>
                   <td>'.$password.'</td>
                   <td my-2  >
                     <button class="btn btn-primary" ><a href="modify.php? modifyid='.$id.'" class="text-light">Modify</a></button>

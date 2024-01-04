@@ -19,6 +19,10 @@ if(isset($_POST['submit']))
 
 
     $result = mysqli_query($conn, $sql); 
+    
+    if (!$result) {
+        echo "Insertion failed: " . mysqli_error($conn);
+    }
 
     if ($result) {
         // echo "New record created successfully";
@@ -78,13 +82,12 @@ if(isset($_POST['submit']))
             <div class="mb-3">
                 <label>Designation</label>
                 <select class="form-select" name="designation" required>
-                    <option value="">Select Designation</option>
-                    <option value="Web Developer">Web Developer</option>
-                    <option value="App Developer">App Developer</option>
-                    <option value="Inter">Intern</option>
+                    <option name="designation" value="">Select Designation</option>
+                    <option name="designation" value="Web Developer">Web Developer</option>
+                    <option name="designation" value="App Developer">App Developer</option>
+                    <option name="designation" value="Intern">Intern</option>
                 </select>
             </div>
-
             <div class="mb-3">
                 <label>Password</label>
                 <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="off" required>
@@ -98,3 +101,5 @@ if(isset($_POST['submit']))
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
+
+
