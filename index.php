@@ -9,10 +9,14 @@ if(isset($_POST['submit']))
     $name=$_POST['name'];
     $email=$_POST['email'];
     $mobile=$_POST['mobile'];
+    $gender = $_POST['gender']; 
+    $dob =$_POST['dob'];
     $password=$_POST['password']; 
+    $designation = $_POST['designation'];
 
-    $sql = "INSERT INTO empdetails (photo , name, email, mobile, password) 
-    VALUES ('$folder','$name', '$email', '$mobile', '$password')";
+    $sql = "INSERT INTO empdetails (photo , name, Email, Mobile, gender,date_Of_Birth,designation, password) 
+    VALUES ('$folder','$name', '$email', '$mobile', '$gender' ,'$dob','$designation', '$password')";
+
 
     $result = mysqli_query($conn, $sql); 
 
@@ -37,7 +41,7 @@ if(isset($_POST['submit']))
         <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()">
         <div class="mb-3">
                 <label>Photo</label>
-                <input type="file" name="image" autocomplete="off" required>
+                <input type="file" name="image" autocomplete="off">
             </div> 
             <div class="mb-3">
                 <label>Name</label>
@@ -51,6 +55,36 @@ if(isset($_POST['submit']))
                 <label>Mobile</label>
                 <input type="text" class="form-control" placeholder="Mobile Number" name="mobile" autocomplete="off" required>
             </div>
+
+            <div class="mb-3">
+                <label>Gender</label><br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male" value="Male" required>
+                    <label class="form-check-label" for="male">Male</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" value="Female">
+                    <label class="form-check-label" for="female">Female</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="other" value="Other">
+                    <label class="form-check-label" for="other">Other</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label>Date Of Birth</label>
+                <input type="date" class="form-control"  name ="dob" autocomplete="off" required>
+            </div>
+            <div class="mb-3">
+                <label>Designation</label>
+                <select class="form-select" name="designation" required>
+                    <option value="">Select Designation</option>
+                    <option value="Web Developer">Web Developer</option>
+                    <option value="App Developer">App Developer</option>
+                    <option value="Inter">Intern</option>
+                </select>
+            </div>
+
             <div class="mb-3">
                 <label>Password</label>
                 <input type="password" class="form-control" placeholder="Password" name="password" autocomplete="off" required>

@@ -14,5 +14,14 @@ function validateForm() {
         return false;
     }
 
+    const dobInput = document.getElementById('dob').value;
+    const today = new Date();
+    const selectedDate = new Date(dobInput);
+    const eighteenYearsAgo = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+    
+    if (selectedDate > eighteenYearsAgo) {
+        alert('Please select a date at least 18 years ago for Date of Birth.');
+        return false;
+    }
     return true; 
 }
